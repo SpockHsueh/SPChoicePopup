@@ -12,7 +12,6 @@
 		041521B6227D2CC300A7AF49 /* SPChoicePopup.h in Headers */ = {isa = PBXBuildFile; fileRef = 041521A8227D2CC300A7AF49 /* SPChoicePopup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		041521C5227D7EF900A7AF49 /* AlwaysShowPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041521C3227D7EF900A7AF49 /* AlwaysShowPopup.swift */; };
 		041521C6227D7EF900A7AF49 /* ArrayChoiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041521C4227D7EF900A7AF49 /* ArrayChoiceTableViewController.swift */; };
-		940B61B838DCF11F97948D18 /* libPods-SPChoicePopup.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C71513F701268D1BF0C5AAB1 /* libPods-SPChoicePopup.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +43,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				940B61B838DCF11F97948D18 /* libPods-SPChoicePopup.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
