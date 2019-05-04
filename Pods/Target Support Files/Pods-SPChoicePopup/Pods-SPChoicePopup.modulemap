@@ -1,0 +1,6 @@
+module Pods_SPChoicePopup {
+  umbrella header "Pods-SPChoicePopup-umbrella.h"
+
+  export *
+  module * { export * }
+}
