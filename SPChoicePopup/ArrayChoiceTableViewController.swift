@@ -50,7 +50,7 @@ open class ArrayChoiceTableViewController: UITableViewController {
         return height / CGFloat(values.count)
     }
     
-    open func showPopup(sourceView: UIView) {
+    open func setPopupView(sourceView: UIView) {
         
         let presentationController = AlwaysPresentAsPopover.configurePresentation(forController: self)
         
@@ -65,8 +65,6 @@ open class ArrayChoiceTableViewController: UITableViewController {
         
         // popup view 位於特定 view 的位置
         presentationController.permittedArrowDirections = [.init(rawValue: 0)]
-        
-        self.present(self, animated: true)
     }
     
 }
