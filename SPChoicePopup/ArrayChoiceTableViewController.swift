@@ -50,9 +50,9 @@ open class ArrayChoiceTableViewController: UITableViewController {
         return height / CGFloat(values.count)
     }
     
-    open func setPopupView(sourceView: UIView) {
+    open func setPopupView(controller: UIViewController, sourceView: UIView) {
         
-        let presentationController = AlwaysPresentAsPopover.configurePresentation(forController: self)
+        let presentationController = AlwaysPresentAsPopover.configurePresentation(forController: controller)
         
         // 利用 sourceView 指到某個特定的 view
         presentationController.sourceView = sourceView
