@@ -9,44 +9,64 @@
 import Foundation
 import UIKit
 
-class ArrayChoiceTableViewController: UITableViewController {
+@objcMembers
+open class ArrayChoiceTableViewController: UITableViewController {
     
-    typealias SelectionHandler = (String) -> Void
+    public typealias SelectionHandler = (String) -> Void
     
     private let values: [String]
     private let onSelect: SelectionHandler?
     private let height: CGFloat
     
-    init(_ values: [String], _ height: CGFloat, onSelect: SelectionHandler?) {
+    public init(_ values: [String], _ popOverHeight: CGFloat, popOverWidth: CGFloat, onSelect: SelectionHandler?) {
         self.values = values
         self.onSelect = onSelect
-        self.height = height
+        self.height = popOverHeight
         super.init(style: .plain)
         self.tableView.tableFooterView = UIView()
+        self.preferredContentSize = CGSize(width: popOverWidth, height: popOverHeight)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return values.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
         cell.textLabel?.text = (values[indexPath.row])
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.dismiss(animated: true)
         onSelect?(values[indexPath.row])
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    override open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return height / CGFloat(values.count)
     }
     
+    open func showPopup(sourceView: UIView) {
+        
+        let presentationController = AlwaysPresentAsPopover.configurePresentation(forController: self)
+        
+        // 利用 sourceView 指到某個特定的 view
+        presentationController.sourceView = sourceView
+        
+        let conRecVar = sourceView.frame
+        
+        print(sourceView.frame)
+        // 設定 sourceRect 控制箭頭指到的位置
+        presentationController.sourceRect = CGRect(x: conRecVar.width / 4, y: conRecVar.origin.y / 2, width: conRecVar.width / 2, height: conRecVar.height / 2)
+        
+        // popup view 位於特定 view 的位置
+        presentationController.permittedArrowDirections = [.init(rawValue: 0)]
+        
+        self.present(self, animated: true)
+    }
 }
 
