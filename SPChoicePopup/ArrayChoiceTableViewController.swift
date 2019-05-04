@@ -68,5 +68,5 @@ open class ArrayChoiceTableViewController: UITableViewController {
         
         self.present(self, animated: true)
     }
+    
 }
-
