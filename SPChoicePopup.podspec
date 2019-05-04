@@ -30,5 +30,6 @@ s.dependency 'MBProgressHUD', '~> 1.1.0'
 # 8
 s.source_files = "SPChoicePopup/**/*.{swift}"
 
+s.swift_version = "4.2"
 
 end
